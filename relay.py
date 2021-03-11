@@ -35,6 +35,11 @@ def crc16Add(read):
     return read
 
 if __name__ == '__main__':
+    port_list = list(serial.tools.list_ports.comports())
+    port_name_list=[]
+    for port in port_list:
+        port_name_list.append(port.name)
+    print("端口列表：",port_name_list)
     while 1:
         ser1=serial.Serial("/dev/ttyS0",9600,timeout=0.5)
         for module in range(1,2): # 循环模块
